@@ -5,6 +5,7 @@ public class Employee {
     private String department;
     private double hourlyWage;
     private double hoursWorked;
+    private String toString;
 
     // Constructor method
     public Employee(String name, int employeeId, String department, double hourlyWage, double hoursWorked) {
@@ -13,9 +14,6 @@ public class Employee {
         this.department = department;
         this.hourlyWage = hourlyWage;
         this.hoursWorked = hoursWorked;
-        System.out.println("Hello " + name + "! Your employee ID is " + employeeId +
-                ". You work in the " + department + " department. You make " + hourlyWage +
-                " an hour and have worked " + hoursWorked + ".");
     }
 
     // Getter method for Employee attributes
@@ -55,7 +53,7 @@ public class Employee {
     public void setHourlyWage(double hourlyWage) {
         this.hourlyWage = hourlyWage;
     }
-    
+
     public void setHoursWorked(double hoursWorked) {
         this.hoursWorked = hoursWorked;
     }
@@ -65,6 +63,14 @@ public class Employee {
         return hourlyWage * hoursWorked;
     }
 
+    //Override
+    public String toString(){
+        return "Employee Name: " + name + "\n" +
+                "Employee ID: " + employeeId + "\n" +
+                "Department: " + department + "\n" +
+                "Hourly Wage: " + hourlyWage + "\n" +
+                "Hours Worked: " + hoursWorked + "\n";
+    }
 
     public static void main(String[] args) {
         // Create an employee
@@ -74,7 +80,11 @@ public class Employee {
         double weeklySalary = employee.calculateWeeklySalary();
 
         // Print the result
-        System.out.println("The weekly salary for " + employee.getName() + " is $" + weeklySalary);
+        System.out.println("The weekly salary for " + employee.getName() + " is $" + weeklySalary + "\n");
+
+        //Returns employee information as string
+        System.out.println(employee.toString());
+
     }
 }
 
